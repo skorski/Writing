@@ -1,60 +1,73 @@
 # Tableau Paper
 
-Tableau is a powerful visualization tool that allows data to be rapidly visualized and disected.  Here at PNNL we have used it in a variety of projects both internally and externally and have found it can offer significant value when leveraged correctly.  This paper will outline some of the best practices we have found for utilizing Tableau.  Our hope is this will serve as both a guide for others and offer an undersatnding of the Tableau process here at PNNL.
+Tableau is a powerful visualization tool that allows data to be rapidly visualized and dissected.  We use Tableau regularly at PNNL, both internally and for external clients, and find that it offers significant value when leveraged correctly.  ***This paper will outline some of the best practices we have found for utilizing Tableau.  Our hope is this will serve as both a guide for others and offer an undersatnding of the Tableau process here at PNNL.
 
+It's tempting to jump right into Tableau, devil-may-care what the data looks like or what information you're trying to get out of it.  We've all done it.  It doesn't work.  It's not worth it.  Don't do it.  Before you start playing with the data, go through the following steps.  Yes, it takes a little time.  But it will save you time in the long run and result in a better product for your client.  
 
-## Understanding the problem
+## Step 1.  Understand the Problem Space
 
-Often we start with data and expect information.  Changing data into information requires an understanding of the problem to elicit the important parts.  Therefore, the first step in creating most visualizations is spending a few hours understanding the problem space.  Generally, this starts by perfoming minimal literature reviews followed by discussions with subject matter experts.  This portion of the process is not overly time consuming but spending extra time here generally pays off with the final product.
+We often start with data but expect information.  Transforming data into information, however, requires us to understand of the problem in order to deduce what parts of the data are important.  Generally, we start by perfoming minimal literature reviews and conducting interviews or discussions with subject matter experts and the client.  This step normally takes a few hours; spending extra time here generally pays off with the final product.
 
-When evaluating failed visualization products, we have noticed this step has either been skipped or rushed.  
+Consider yourself forwarned!  In projects where we have failed to deliver an adequeate visualization, this step has either been skipped or rushed.  
 
-### Example
-Tableau was leveraged in one project to visualize weather information.  This was a broad problem so we probbed into what needed to be visualized and the problem space.  From our elicitation we learned our clients were primarily interested in understanding the temperature and humidity information from a number of projected weather files across years.  By digging into the problem space in more detail we were able to develop a small list of must have metrics for the final visualization.
+### Example (Is this the right example?  Or is this really understanding the clients?)
+We were asked by a client to develop a visualization of "weather" information.  It goes without saying that "weather" is a sufficiently broad problem space.  So we met with experts and our client to elicit what information they hoped to communicate and determine what data we might need to be visualize.  From this elicitation, we learned that our clients were primarily interested the temperature and humidity from a number of projected ? weather files across years.  By digging into the problem space in more detail, we were able to develop a small list of must-have metrics for the final visualization.
 
+In taking the time to develop even a working understanding of the problem, we also give ourselves a place to begin when we start in on the data.  
 
-## Understanding the data
+## Step 2.  Understanding the Data
 
-Having a cursory understading of the problem gives the designers something to look for in the dataset.  In the same way that a rock climber needs to find the first ledge for thier hand, a designer needs an initial place to start pulling and visualizing data.  This step is also performed in the presence of the clients to help refine the designers understanding of the dataset.
+In the same way that a rock climber needs to find the first ledge on which to place hand, you need an starting point from which you will begin playing with the data and building your visualization.  WHAT DO WE MEAN BY THIS?  to help refine the designers understanding of the dataset.  From our experience, it is best to do this side-by-side with the client.   
 
-When available, we leverage existing excel documentation to look at data structures adnd organization.  If data is only stored within databases we construct entity relationship diagrams to map the data location and relationships.  These almost always become a valuable discussion tool later in the visualization workflow.
+Since most clients are comfortable with Excel, we use Excel to look at data structures and organization whenever possible.  If we're working with data from databases, we build entity relationship diagrams to map the data location and relationships.  These almost always become a valuable discussion tools later when we're building and refining the visualization.
 
+PICTURE?
 
+As we work with the client to understand the data, we are also getting to know them and their expectations for the product.
 
-## Understanding the clients
+## Step 3.  Understanding the Client
 
-The perfect visualization for one client might be completely unacceptable for the next.  For that reason, we try and understand what each specific client is looking for from the visualization.  Some people will require tables of data, others only want colored charts.  Asking clients what they want isn't generally effective so we instead ask to see current reports and charts they find useful.  These generally become a good starting point for our future development.
+The perfect visualization for one client might be completely unacceptable for the next.  For that reason, we try and understand what each specific client is looking for from the visualization.  Some clients require tables of data; others only want colored charts.  We have found that asking clients what they want is not effective; we have had more success asking to see their current reports as well as charts and other visualizations they find useful.  These examples are a good starting point for development of the visualization.
 
+## Step 4.  Understanding the Question
 
-## Understanding the question
+Okay.  Now that you have all that background information (problem space, data, client!), you are ready to understand the question.  We developed the following table, which we complete iteratively with the client until we fully capture what question they are trying to answer.
 
-With the background in hand, it should now be possible to understand and engage the clients on the question they are trying to answer with the data.  A best practice is to fill out the following table 
+EXAMPLE table
 
 Use Case | Reasoning | Explination
 ----
 
-## Formatting Data
+Have you made it this far?  We know, we're not even to the fun stuff yet.  But this next step is, possibly, the keystone in the arch that is your data analysis and visualization project.  
 
-At this point we have a reasonable understading of the problem space, cursory understanding of the data, and examples of visualzations the clients already find useful.  This is the time to start thinking more about the data.
+## Step 5.  Formatting the Data
 
-A stacked dataset will work well for Tableau visualzations like the following:
+Your viz will fail if your data is not formatted correctly.  Well, that's not entirely true.  Without formatting your data properly, you can probably get your viz to about 80% of where you want it before you end up having to go back and reformat the data anyway.  The better you format your data before you begin, the easier it will be to build the viz and the better your viz will be in the end.  Ideally, you will format your data exactly how it needs to be for your viz before you start building it.  But that doesn't always happen.  Even with practice and experience, you may get pretty far in building your viz and then realize you need to reformat your data.  That's okay.  Learn from your mistakes and make better choices next time.  Or learn from ours:
 
-If the clients require visualizations like <Insert Viz> it must be unstacked.
+A stacked dataset will work well for Tableau visualizations like the following:
 
-Our team leverages open source ETL tools to transform database data or will use excel macros to reformat existing excel sheets.  The best practice is to convert the data to both a stacked and unstacked version when possible so both are available.  Tableau excels at data blending and can make the connection between the two data formats seamless.
+(SHOW DATA AND VIZ EXAMPLE)
 
-Transforming data can always become a nightmare if the data becomes updated in the future.  For that reason, reformatting repeatability is extremely important.  This requires an understanding of all input files used, transformation techques, and outputs.  The outputs should also be clearly labeled with some type of documentation indicating their source and a processing date.
+If the clients require visualizations like <Insert Viz>, the data must be unstacked.
+
+(ANOTHER EXAMPLE)
+
+To get data in the format we need, we use open source extract, transform, and load (ETL) tools like BLAH BLAH BLAH to transform database data.  When using Excel data, we often develop macros to reformat uncooperative worksheets.  Whenever possible, we convert the data to both a stacked and unstacked (see code, example, etc) version so both are available.  When you are working with data from two data formats or multiple sources, you can use Tableau's native connection feature to blend and connect data seamlessly.
+
+Example?
+
+Transforming data can always become a nightmare if the data becomes updated in the future.  For that reason, reformatting repeatability is extremely important.  This requires an understanding of all input files used, transformation techiques, and outputs.  The outputs should also be clearly labeled with some type of documentation indicating their source and a processing date.
 
 ### Text vs xls vs db
 
-Whenever possible a database works extremely well with Tableau.  When processing weather information for a client, an R script was developed to read the files into a local sqlite database for processing.  Once in a database, the records can easily be joined with other types of information.  
+Whenever possible, we like to use data from databases with Tableau.  When processing data in the weather example, we developed a script to read the WHAT files into a local sqlite database for processing.  Once in a database, we could easily join the with other types of information using Tableau's connection features.  
 
-If data has been reformatted from excel or csv files and is relatively small, excel might be the best option for data storage format.  Tabeleau can connect live to excel sheets which makes updating and changing information extremely efficient for those used to the excel environment. 
+If data has been reformatted from Excel or csv files and is relatively small, Excel might be the best option for data storage format.  Tabeleau can connect live to excel sheets, which makes updating and changing information extremely efficient for those used to the Excel environment. 
 
 
 ## Creating visualization
 
-Once a good data foundation is established the fun can begin.  There are numerous tutorials fully detailing the complexities of Tableau visualizations and thier possibilities.  Using the details from above we start constucting individual sheets to display the data.  These are generally higher level than appear to be useful at first but will become part of dashboards in the future.  
+Finally!  We made it!  Once we've established a good data foundation, the fun can begin.  There are numerous tutorials fully detailing the complexities and possibilities of Tableau visualizations.  Using the details from above, we start constucting individual sheets to display the data.  These are generally higher level than appear to be useful at first but will become part of dashboards in the future.  
 
 Actions and dashboard are created once the core visualization sheets are finished.  One or more core visualizations are placed on a sheet to tell a compelling story about the data.  Tableau differs from other tools because it works best wehn the visualizations are compartmentalized to dashboards.  Actions can be used to seamlessly transport the user between dashboards to visualize their data.  We have used this technique to show geographic relationships.  The client was interested in understanding information at the city level but also needed something for the entire country.  Our solution was to create a colored country map that linked to a state level dashboard highlighting each city.  This action was immediate and allowed us to show more detailed information regarding the state and the selected cities.  We followed a similar approach to show what resources were available in the city.
 
@@ -64,9 +77,9 @@ Actions and dashboard are created once the core visualization sheets are finishe
 There are three primary methods of distrubuting a Tableau visualiztion, each of which has benefits that others do not.
 
 ### 1 Tableau Public
-	- When you are using data that is relatively small, less than 1,000,000 rows, and is not proprietary, Tableau public can be an excellent option.  Through their public server, Tableau will store your data and host the visualiztion.  This can be easily embedded into websites to quickly share insights.
+	- When you are using data that is less than 1,000,000 rows and is not proprietary, Tableau public can be an excellent option.  Through their public server, Tableau will store your data and host the visualiztion.  This can be easily embedded into websites to quickly share insights.
 
-	Tableau public also has some limitations on what can be done with the dashbaord.  When the dashbaord is created with the desktop version items like "view data" are available, these are not available in the public version so additional design considerations must be taken into account if the user would like to see all underlying data.
+	However, there are limits to what can be done with the dashbaord when you use Tableau public.  When the dashbaord is created with the desktop version items like "view data" are available; these are not available in the public version so additional design considerations must be taken into account if the user would like to see all underlying data.
 
 	Pros: Completely free, easily sharable, very fast
 	Cons: Data must be made public, data sizes must be relatively small.
