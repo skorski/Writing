@@ -1,0 +1,13 @@
+# Git Basics
+
+Setting it up from the command line
+
+a) set some global variables.  These will save time when making commits because git won't keep asking.  Also, your commits will have the correct name
+	i) git config --global user.name
+	ii) git config --global user.email
+
+b) If we are going to pull a repo from a remote source
+	i) move into the directory of choice
+	ii) git clone {sftp:location}
+
+	iii) at this point the entire git directory will be on your machine and you can begin working.
