@@ -1,5 +1,53 @@
 # Git Basics
 
+What is Git and why should you use it?
+	Quite simply, git is distributed version control.  It allows files to be stored, organized,  versioned, and shared using a well defined framework.  When used effectively, the system will free folders of messy and inconsistent version names.  It has the most utility with flat files (essentially anything you could edit with a text editor), but can also be used with binary files such as powerpoint, word, excel, or pdf.  
+
+	Git manages versions through what are called commits and branches.  The commits represent a state of the files that should be saved for future reference.  The branches represent different directions the work may take.  
+
+	As an example, if you are working on a project and are at a point where a small but tangible amount of work is completed, perhaps adding a new function, this could be commited.  This commit can then be referenced in the future and the clock can be turned back to this specific state if something is broken in the future.
+
+	A branch is used for developing new feature sets without inturrupting the main portion of the project.  This would be useful if part of the team is refactoring a set of functions to increase speed.  The team wouldn't want to break the functions for everyone else but needs their own place to work.  By using a branch they can perform all of their work and testing without impacting others.  Once completed with the refactoring the work can be "merged" back with the original branch to give everyone the benefits of the refactoring.  
+
+	Branches and commits can be selectively merged at any point.  This is a powerful concept that is central to git.  If a team member makes a commit that is useful in a different branch, it can be independently merged.  If it is determined that an old commit breaks part of the code base, that specific commit can be reversed without affecting any of the future commits.  
+
+	There are lots of other great features of git that we will cover in the future after committing and branching is more understood.  
+
+
+Git is most useful if you already have an account with a remote repository.  We therefore begin our tutorial by recommending you visit one of the many web hosted git repos.  These include the following
+
+github.com
+	pros: 
+		- Well known gold standard for open source repositories
+		- Many users with a strong community
+
+	cons:
+		- if you have something that you need to be private, github will charge you to make the repository private.
+
+	storage limits:
+
+
+bitbucket.com
+	pros:
+		- private repositories are free, just select private
+		- arguably the second largest code repository location
+
+	cons:
+
+
+	storage limits:
+
+Both bitbucket and github offer excellent web intergaces that can make collaboration and review much easier.  Some of our favorite shared features include:
+	- inline code commenting:
+		If you find a line that seems fishy, or if there is a quick question, add a comment to a specific line via the web interface.  This can be a rapid way of performing code reviews
+
+	- commit notifications:
+		Keeping current on work from a team becomes challenging as commits pile up.  Both services offer a robust number of features to notifiy you of new commits.  As your team becomes more clear with commit messages these can help quickly flag commits that warrent extra attention.
+
+	- bug tracking?
+
+
+
 Setting it up from the command line
 
 a) set some global variables.  These will save time when making commits because git won't keep asking.  Also, your commits will have the correct name
@@ -11,3 +59,17 @@ b) If we are going to pull a repo from a remote source
 	ii) git clone {sftp:location}
 
 	iii) at this point the entire git directory will be on your machine and you can begin working.
+
+Setting up with source tree
+	- Source tree is one of many source control gui tools available for OS X and Windows.  In our experience, it provides a nice balance between the complex functions offered by git and a simple user interface.  If additional actions must be done outside of the GUI, source tree also provides a nice command line terminal that is quickly accessed.
+
+	- Download link
+
+	- Setting it up
+		- 
+
+Creating the first commit
+
+
+Ignoring files
+	It's common in code for many files to be automatically generated.  These files don't need to be stored in a repository because they can be easily recreated.  Git has a convinent method for ignoring these files by suing the .gitignore file.  Anything that matches what is in this file will not be updated to the repo.
