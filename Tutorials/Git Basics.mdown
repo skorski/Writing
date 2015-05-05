@@ -1,52 +1,68 @@
 # Git Basics
 
-What is Git and why should you use it?
-	Quite simply, git is distributed version control.  It allows files to be stored, organized,  versioned, and shared using a well defined framework.  When used effectively, the system will free folders of messy and inconsistent version names.  It has the most utility with flat files (essentially anything you could edit with a text editor), but can also be used with binary files such as powerpoint, word, excel, or pdf.  
+## What is Git and why should you use it?
 
-	Git manages versions through what are called commits and branches.  The commits represent a state of the files that should be saved for future reference.  The branches represent different directions the work may take.  
+Quite simply, git is distributed version control.  It allows files to be stored, organized,  versioned, and shared using a well defined framework.  When used effectively, the system will free folders of messy and inconsistent version names.  It has the most utility with flat files (essentially anything you could edit with a text editor), but can also be used with binary files such as powerpoint, word, excel, or pdf.  
 
-	As an example, if you are working on a project and are at a point where a small but tangible amount of work is completed, perhaps adding a new function, this could be commited.  This commit can then be referenced in the future and the clock can be turned back to this specific state if something is broken in the future.
+Each git repository is a complete copy of all changes that have every been made to the code that is within the repository.  This means that when you copy a repository from github or from a friend, you have the complete history of the project at your fingertips without needing a network connection.  This may sound like it would take a substantial amount of space but git uses snapshots to keep sizes small.
 
-	A branch is used for developing new feature sets without inturrupting the main portion of the project.  This would be useful if part of the team is refactoring a set of functions to increase speed.  The team wouldn't want to break the functions for everyone else but needs their own place to work.  By using a branch they can perform all of their work and testing without impacting others.  Once completed with the refactoring the work can be "merged" back with the original branch to give everyone the benefits of the refactoring.  
+Git manages changes through what are called commits and branches.  The commits represent a state of the files that should be saved for future reference.  The branches represent different directions the work may take.  
 
-	Branches and commits can be selectively merged at any point.  This is a powerful concept that is central to git.  If a team member makes a commit that is useful in a different branch, it can be independently merged.  If it is determined that an old commit breaks part of the code base, that specific commit can be reversed without affecting any of the future commits.  
+As an example, if you are working on a project and are at a point where a small but tangible amount of work is completed, perhaps adding a new function, this could be commited.  This commit can then be referenced in the future and the clock can be turned back to this specific state if something is broken in the future.
 
-	There are lots of other great features of git that we will cover in the future after committing and branching is more understood.  
+A branch is used for developing new feature sets without inturrupting the main portion of the project.  This would be useful if part of the team is refactoring a set of functions to increase speed.  The team wouldn't want to break the functions for everyone else but needs their own place to work.  By using a branch they can perform all of their work and testing without impacting others.  Once completed with the refactoring the work can be "merged" back with the original branch to give everyone the benefits of the refactoring.  
+
+Branches and commits can be selectively merged at any point.  This is a powerful concept that is central to git.  If a team member makes a commit that is useful in a different branch, it can be independently merged.  If it is determined that an old commit breaks part of the code base, that specific commit can be reversed without affecting any of the future commits.  
+
+There are lots of other great features of git that we will cover in the future after committing and branching is more understood.  
 
 
 Git is most useful if you already have an account with a remote repository.  We therefore begin our tutorial by recommending you visit one of the many web hosted git repos.  These include the following
 
-github.com
-	pros: 
-		- Well known gold standard for open source repositories
-		- Many users with a strong community
+### github.com
+pros: 
+	- Well known gold standard for open source repositories
+	- Many users with a strong community
+	- Flat fee of using a private repository
 
-	cons:
-		- if you have something that you need to be private, github will charge you to make the repository private.
+cons:
+	- if you have something that you need to be private, github will charge you to make the repository private.
+	- Requires a new login account (can't use google, twitter, facebook, etc.)
 
-	storage limits:
+storage limits:
+	- soft limit at 1GB.  Over 1GB they will politely send you a message asking you to reduce the size.
 
+###bitbucket.com
+pros:
+	- private repositories are free, just select private
+	- arguably the second largest code repository location
+	- can use login credentials from Twitter, Facebook, OpenID, or Google
+	- inline commenting.  If you see a line of code that seems fishy, make a comment to find out more information.
+	
+cons:
+	- Fewer users
+	- Privite repositories are chaged by the user and still maintain the same storage limits
 
-bitbucket.com
-	pros:
-		- private repositories are free, just select private
-		- arguably the second largest code repository location
+storage limits:
+	- Soft limit at 1GB.  Hard limit at 2GB that will prevent future push's to the repository
 
-	cons:
+Both bitbucket and github offer excellent web integrations that can make collaboration and review much easier.  Some of our favorite shared features include:
+- web based edits:
+	Review code online and make modifications and commit them through the website.  This can be very helpful if you are performing quick code reviews online or if you are working on markdown files.
+	
+- commit notifications:
+	Keeping current on work from a team becomes challenging as commits pile up.  Both services offer a robust number of features to notifiy you of new commits.  As your team becomes more clear with commit messages these can help quickly flag commits that warrent extra attention.
 
+- bug tracking:
+	When bugs are found, both tools allow you to quickly mark them to make sure they are resolved in the future.  
 
-	storage limits:
+Conclusion:
 
-Both bitbucket and github offer excellent web intergaces that can make collaboration and review much easier.  Some of our favorite shared features include:
-	- inline code commenting:
-		If you find a line that seems fishy, or if there is a quick question, add a comment to a specific line via the web interface.  This can be a rapid way of performing code reviews
+Bitbucket is a better solution when you need a minimum number of private repositories to share between a team.  The integrated issue tracker and the inline comments allow for fast and flexible reviews.
 
-	- commit notifications:
-		Keeping current on work from a team becomes challenging as commits pile up.  Both services offer a robust number of features to notifiy you of new commits.  As your team becomes more clear with commit messages these can help quickly flag commits that warrent extra attention.
+When going fully open source we go with GitHub.  The community is extensive and is the gold standard.
 
-	- bug tracking?
-
-
+Remember that either solution isn't permannet.  It's always easy to download a repository and push to a different service.  So if you find yourself agonizing over the choice for more than 30 minutes, pick one and use it until you can't stand it.  It's more important to use version control than to get hung up on an implementation detail. 
 
 Setting it up from the command line
 
@@ -68,8 +84,38 @@ Setting up with source tree
 	- Setting it up
 		- 
 
-Creating the first commit
 
+Creating the first commit
+	We will start by creating a simply python file that will print hello world
+
+	Command line:
+		- The command line is very simple.  Navigate to the root directory for the git repository
+		{git status} - This will show the status of the repository.  
+		{git add *} - Add the file of importance
+		{git status} - sometimes it's nice to see the file actually part of the commit
+		{git commit} - this will actually commit the changes to the local repository
+		{git push} - take the local commits and push them to the remote repository
+
+	Source tree
+
+
+
+Creating the first branch
+	Branching is useful when working on a new feature or on something that can break existing pieces of code.  In our hello world example we are going to change the function so it now prints a set of random values based on input from the user.  If this function change was made in the main repository, all of the calls to hello world would have to be changed before the program would work again.  With branching, we can make the changes where things break and then tie it all back together before the final merge.
+
+	changes to the code:
+		
+
+	Command line:
+
+
+
+	Source tree:	
+
+Performing the first merge
 
 Ignoring files
-	It's common in code for many files to be automatically generated.  These files don't need to be stored in a repository because they can be easily recreated.  Git has a convinent method for ignoring these files by suing the .gitignore file.  Anything that matches what is in this file will not be updated to the repo.
+	It's common in software for many files to be automatically generated.  These files don't need to be stored in a repository because they can be easily recreated.  Git has a convinent method for ignoring these files by suing the .gitignore file.  Anything that matches what is in this file will not be updated to the repo.
+
+	Describe how the .gitignore file works
+
