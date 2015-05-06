@@ -2,9 +2,9 @@
 
 ## What is Git and why should you use it?
 
-Quite simply, git is distributed version control.  It allows files to be stored, organized,  versioned, and shared using a well defined framework.  When used effectively, the system will free folders of messy and inconsistent version names and will provide context to all changes that have been made.  It has the most utility with flat files (essentially anything you could edit with a text editor), but can also be used with binary files such as powerpoint, word, excel, or pdf.  
+Quite simply, git is distributed version control.  It allows files to be stored, organized,  versioned, and shared using a well-defined framework.  When used effectively, the system will free folders of messy and inconsistent version names and will provide context to all changes that have been made.  It has the most utility with flat files (essentially anything you could edit with a text editor), but can also be used with binary files such as powerpoint, word, excel, or pdf.  
 
-Each git repository is a complete copy of all changes that have every been made to the code that is within the repository.  This means that when you copy a repository from github or from a friend, you have the complete history of the project at your fingertips without needing a network connection.  This may sound like it would take a substantial amount of space but git uses snapshots to keep sizes small.
+Each git repository is a complete copy of all changes that have every been made to the code that is within the repository.  This means that when you copy a repository from github or from a friend, you have the complete history of the project at your fingertips without needing a network connection.  This may sound like it would take a substantial amount of space, but git uses snapshots to keep sizes small.
 
 Git manages changes through what are called commits and branches.  The commits represent a state of the files that should be saved for future reference.  The branches represent different directions the work may take.  
 
@@ -26,20 +26,20 @@ Git is most useful if you already have an account with a remote repository.  We 
 - Flat fee of using a private repository
 
 #### Cons:
-- if you have something that you need to be private, github will charge you to make the repository private.
+- If you have something that you need to be private, github will charge you to make the repository private.
 - Requires a new login account (can't use google, twitter, facebook, etc.)
 
 #### Storage limits:
-- soft limit at 1GB.  Over 1GB they will politely send you a message asking you to reduce the size.
+- Soft limit at 1GB.  Over 1GB they will politely send you a message asking you to reduce the size.
 
 ### bitbucket.com
 
 #### Pros:
 
-- private repositories are free, just select private
-- arguably the second largest code repository location
-- can use login credentials from Twitter, Facebook, OpenID, or Google
-- inline commenting.  If you see a line of code that seems fishy, make a comment to find out more information.
+- Private repositories are free, just select private
+- Arguably the second largest code repository location
+- Can use login credentials from Twitter, Facebook, OpenID, or Google
+- Inline commenting.  If you see a line of code that seems fishy, make a comment to find out more information.
 	
 #### Cons:
 
@@ -54,13 +54,13 @@ Git is most useful if you already have an account with a remote repository.  We 
 
 Both bitbucket and github offer excellent web integrations that can make collaboration and review much easier.  Some of our favorite shared features include:
 
-- web based edits:
+- Web-based edits:
 	Review code online and make modifications and commit them through the website.  This can be very helpful if you are performing quick code reviews online or if you are working on markdown files.
 	
-- commit notifications:
+- Commit notifications:
 	Keeping current on work from a team becomes challenging as commits pile up.  Both services offer a robust number of features to notifiy you of new commits.  As your team becomes more clear with commit messages these can help quickly flag commits that warrent extra attention.
 
-- bug tracking:
+- Bug tracking:
 	When bugs are found, both tools allow you to quickly mark them to make sure they are resolved in the future.  
 
 ## Conclusion:
@@ -72,3 +72,4 @@ Bitbucket is a better solution when you need a minimum number of private reposit
 Writen by: Dan Skorski
 
 This introduction has been read and edited by:
+Angela Waterworth
