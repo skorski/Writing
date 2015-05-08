@@ -3,17 +3,22 @@ Operations Research Team
 
 What is the goal of a publication?
 - share ideas
-- demonstrate competency
-    + Future funding
+- demonstrate competency / bolster reputation
+- expand the current state of the art
+- gain future funding
 
-
-What are the goals of our group?
+What are the goals of external outreach?
 - Increased team collaboration
 - Socialization of ideas
 - External recognition
 - External collaboration
+- business development
 
 How are we going to accomplish it?
+Group page (visible internally and externally)
+- provide a place to highlight work in a flashy manner
+- area to post white papers and articles 
+
 Social web:
 - academia.edu
 - researchgate.com
