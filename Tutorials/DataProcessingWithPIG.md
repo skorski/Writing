@@ -45,9 +45,12 @@ Significantly more information regarding this process is on the hortonworks tuto
 ## Create the PIG Script
 The pig script can be created within the webframework but I prefer to use the command line.  It is just as easy, give more output, and offers more interactivity within the results.  Critically, it will allow you to describe each of the data objects as you define them to make sure you know what you are working with.
 
-If you are using the sandbox simply login using putty '127.0.0.1:2222' username 'root' password 'hadoop'.
+If you are using the sandbox simply login using putty 
+
+	'127.0.0.1:2222' username 'root' password 'hadoop'.
 
 Once you are at a command line you can start pig with the following command:
+
 	'pig -useHCatalog'.
 
 The option of useHCatalog is important because it will allow pig to use the catalogs that have been defined through the data import.  Without that option, the first line to load the dataset will fail.
@@ -59,6 +62,7 @@ I named the dataset nyse data.  You can confirm what you have named it by going 
 	dataset = LOAD 'nysedata' USING org.apache.hive.hcatalog.pig.HCatLoader();
 
 running a describe on the dataset should show:
+
 	dataset: {exchange: chararray,stock_symbol: chararray,date: chararray,stock_price_open: double,stock_price_high: double,stock_price_low: double,stock_price_close: double,stock_volume: long,stock_price_adj_close: double}
 
 ### Subset the data
@@ -74,9 +78,11 @@ Again, if we describe we should see the following:
 	groupedDataset = GROUP subsetDataset BY stock_symbol;
 
 Results of describe:
+
 	groupedDataset: {group: chararray,subsetDataset: {(stock_symbol: chararray,stock_volume: long)}}
 
 Note how this data is stored.  There is a group with the individual stock_symbol and then all of the resulting data that applies to the group.  If we were to look at the head of the groupedDataset we should see something like the following:
+
 	{group: AAPL, 
 		subsetDataset: 
 			{(stock_symbol: APPL, stock_volume: 23423), 
@@ -92,10 +98,12 @@ It is important to know which stock symbol we have calculated the average for so
 	outputDataset = FOREACH groupedDataset GENERATE AVG(subsetDataset.stock_volume), group;
 
 Results of Describe:
+
 	outputDataset: {double,group: chararray}
 
 ### Wrapping up with PIG
 At this point the output can be dumped to the screen.  The following command will actually run the complete job.
+
 	dump outputDataset;
 
 This will show all of the results to the screen as well as a log of what is going on with the file.
