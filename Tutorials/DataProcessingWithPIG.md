@@ -6,9 +6,11 @@ I have taken their tutorial and made a few modifications so it is correct with t
 
 ## Download the Sandbox
 There are a number of great tutorials for installing the sandbox so I won't go into much detail.  The important bits are that you'll need some type of VM.  I use virtualbox because it works and because it is free.
+
 https://www.virtualbox.org/wiki/Downloads
 
 Then download the hortonworks sandbox.  I'm using version 2.2 for this tutorial.
+
 http://hortonassets.s3.amazonaws.com/2.2.4/Sandbox_HDP_2.2.4.2_VirtualBox.ova
 
 
@@ -30,8 +32,12 @@ Go to the File Browser at this address:
 http://127.0.0.1:8000/filebrowser/
 
 You can also click on the icon in the menu bar.
+![Menu Bar](http://gyazo.com/32322ef6a34271b14476ad574db7640b "File Browser Icon")
+
 
 ### Upload the file to your user directory
+Click the upload button and then select the file.  This will allow you to select the file and upload it to the correct spot.
+![Upload File](http://gyazo.com/e25722b23b10d244d47b47608523973c "Upload File")
 
 
 ### Bring the file into the catalog
