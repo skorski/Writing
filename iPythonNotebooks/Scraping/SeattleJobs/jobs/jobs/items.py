@@ -7,8 +7,16 @@
 
 import scrapy
 
-
-class JobsItem(scrapy.Item):
+class JobListing(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    title = scrapy.Field()
+    description = scrapy.Field()
+    jobID = scrapy.Field()
+    scrapeDate = scrapy.Field()
+    postAge = scrapy.Field()
+    company = scrapy.Field()
+    companyCity = scrapy.Field()
+    companyState = scrapy.Field()
+    rating = scrapy.Field()
+    detailURL = scrapy.Field()
