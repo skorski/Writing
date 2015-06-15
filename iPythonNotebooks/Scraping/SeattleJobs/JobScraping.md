@@ -301,39 +301,35 @@ In the end, that wasn't exactly what we wanted so we used a different function `
 
 ### Yeilding an Item
 
+If you run the script now you will be able to see the output on the console. To get it into a json file we simply specify an output file with `-o outputFile.json`
 
+## Spanning multiple pages
 
-// Testing area
+We now have a gloriously complex scraper that only grabs a single page.  To take full advantage of what we have created we need to change that.  This is a simple change to the parse function.
 
-```flow
-st=>start: Start
-e=>end
-op=>operation: My Operation
-cond=>condition: Yes or No?
-
-st->op->cond
-cond(yes)->e
-cond(no)->op
+```python
+    for url in response.xpath('//div[@class="pagination"]/a/@href').extract():
+        yield sc.Request("http://www.indeed.com"+url, callback=self.parse)
 ```
 
-```sequence
-Alice->Bob: Hello Bob, how are you?
-Note right of Bob: Bob thinks
-Bob-->Alice: I am good thanks!
-```
+This tells the spider to follow all of the links that it finds in the pagination.
 
+## Testing
 
-The *Gamma function* satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral
+At this point I run the spider on the command line without dumping the file anywhere.  This is important because I want to see how far the spider gets and also see the data.  According to indeed I should get a little over 2000 jobs from this search.
 
-$$
-\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
-$$
+Look closely at the stats and you will see how many jobs were reported from the spider.
+![Job results](http://i.gyazo.com/47f1ff87cb4207ee3ab0e99078f75eae.png)
 
-Now let's modify our spider so we can export that information.  
+Fun fact: Even though indeed says there are 2000+ jobs for this search, they are only going to page through the first 1000.
 
-        for url in response.xpath('//a/@href').extract():
-                yield scrapy.Request(url, callback=self.parse)
+## Scrapy Outout
 
+Once we have the final json file we can begin to play with it, but that will be the subject of a future tutorial.
+
+## References
+
+Writen by Dan Skorski using python and scrapy.
 
 <script type="text/javascript"
   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">

@@ -1,15 +1,20 @@
 import scrapy as sc
 from jobs.items import JobListing
 from datetime import datetime
+import re
 
 class jobSpider(sc.Spider):
 	name = "jobs"
-	allowed_domains = ["http://www.indeed.com/"]
+	allowed_domains = ["http://www.indeed.com/", "www.indeed.com"]
 	start_urls = [
 		"http://www.indeed.com/jobs?q=operations+research&l=seattle%2C+WA",
 	]
 
 	def parse(self, response):
+		for url in response.xpath('//a/@href').extract():
+				yield sc.Request("http://www.indeed.com"+url, callback=self.getJobs)
+
+	def getJobs(self, response):
 		results = response.xpath('//div[@itemtype="http://schema.org/JobPosting"]')
 
 		for index, post in enumerate(results):
@@ -25,3 +30,6 @@ class jobSpider(sc.Spider):
 			posting['rating'] = post.xpath('.//a/span[@class="ratings"]/span[@class="rating"]/@style').extract()
 			posting['detailURL'] = post.xpath('.//h2[@class="jobtitle"]/a/@href').extract()
 			yield posting
+
+		for url in response.xpath('//div[@class="pagination"]/a/@href').extract():
+			yield sc.Request("http://www.indeed.com"+url, callback=self.getJobs)
